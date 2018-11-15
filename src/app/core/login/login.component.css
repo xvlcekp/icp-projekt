@@ -1,0 +1,41 @@
+:host {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#loginModal {
+    width: 500px;
+    background-color: white;
+    z-index: 10;
+    margin: 100px auto;
+    border: 2px solid #dfdfdf;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+i.user {
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+.close {
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.danger {
+    border: 1px solid red;
+}

@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+[margin-bottom] {
+    margin-bottom: 16px;
+}
+
+[margin-top] {
+    margin-top: 16px !important;
+}
+
+[flex] {
+    display: flex !important;
+}
+
+[flex-end] {
+    justify-content: flex-end;
+}
+
+[flex-column] {
+    flex-direction: column;
+}
+
+[d-block] {
+    display: block !important;
+}
+
+[justify-content-space-between] {
+    justify-content: space-between;
+}
+
+[justify-content-flex-end] {
+    justify-content: flex-end;
+}
+
+[full-width] {
+    width: 100%;
+}
+
+[text-center] {
+    text-align: center;
+}

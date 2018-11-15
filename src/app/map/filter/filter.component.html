@@ -1,0 +1,93 @@
+<nav>
+  <div>
+    <h3 text-center>Typ parkoviska</h3>
+    <div class="ui checkbox" margin-bottom>
+      <input type="checkbox" name="indoor" value="indoor" (change)="selectCheckbox($event)">
+      <label>Kryté parkovisko</label>
+    </div>
+    <div class="ui checkbox" margin-bottom>
+      <input type="checkbox" name="outdoor" value="outdoor" (change)="selectCheckbox($event)">
+      <label>Vonkajšie parkovisko</label>
+    </div>
+    <div class="ui checkbox" margin-bottom>
+      <input type="checkbox" name="guarded" value="guarded" (change)="selectCheckbox($event)">
+      <label>Strážené parkovisko</label>
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <h3 text-center>Typ vozidla</h3>
+    <div flex justify-content-space-between>
+      <div class="ui checkbox" margin-bottom>
+        <input type="checkbox" name="personal">
+        <label>Osobný automobil</label>
+      </div>
+      <div class="ui checkbox" margin-bottom>
+        <input type="checkbox" name="truck">
+        <label>Nákladné vozidlo</label>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <h3 text-center>Cena do</h3>
+    
+    <div class="ui icon input">
+      <i class="euro sign icon"></i>
+      <input full-width type="text" [value]="maxPrice" (change)="setPrice($event)">
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <h3 text-center>Vzdialenosť od adresy</h3>
+    <div class="ui right labeled input" full-width>
+      <input  type="text">
+      <div class="ui basic label">
+        m
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div flex justify-content-flex-end>
+    <button class="ui primary button">
+      Vyhľadať
+    </button>
+  </div>
+
+  <h4 class="ui horizontal divider header">
+    <i class="map marker alternate icon"></i>
+    Výsledky
+  </h4>
+
+  <div>
+    <div class="ui divided items">
+
+      <div class="item" *ngFor="let park of filtered">
+        <div class="ui tiny image">
+          <img src="https://www.syncron.com/wp-content/uploads/2017/03/img-placeholder.png">
+        </div>
+        <div class="content" flex flex-column justify-content-space-between>
+          {{ park.name }}
+
+          <div>
+            <a (click)="onOrder(park)">Objednať</a>
+            <span class="right floated">
+              {{ park.price == 0 ? 'Zdarma' : park.price }} 
+              <span *ngIf="park.price > 0"><i class="euro sign icon"></i> / hodina</span> 
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+</nav>

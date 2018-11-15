@@ -1,0 +1,121 @@
+<div id="paymentModal">
+  <h1>Platba</h1>
+
+  <div *ngIf="step == 1">
+    <table class="summary">
+      <tbody>
+        <tr>
+          <td><h4>Cena:</h4></td>
+          <td>{{ order.park.price == 0 ? 'Zdarma' : order.park.price + "€ / hodina" }}</td>
+        </tr>
+        <tr>
+          <td><i class="map icon"></i></td>
+          <td>Ilkovičkova 2, Bratislava</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="order.park.price != 0">
+
+      <h4 style="text-align: left;">Platba kartou</h4>
+
+      <form (ngSubmit)="onPayment(f)" #f="ngForm">
+        <div class="ui grid">
+          <div class="sixteen wide column">
+            <div class="ui input" full-width>
+              <input name="card_number" type="text" placeholder="Číslo karty" ngModel required>
+            </div>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input name="holder" type="text" placeholder="Meno držiteľa karty" ngModel required>
+            </div>
+          </div>
+          <div class="four wide column">
+            <div class="ui input" full-width>
+              <input name="CVV" type="text" placeholder="CVV" ngModel required>
+            </div>
+          </div>
+          <div class="four wide column">
+            <div class="ui input" full-width>
+              <input name="MM" type="text" placeholder="MM" ngModel required>
+            </div>
+          </div>
+          <div style="font-size: 50px; padding-top: 21px;" class="one wide column">
+            /
+          </div>
+          <div class="four wide column">
+            <div class="ui input" full-width>
+              <input name="RR" type="text" placeholder="RR" ngModel required>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui divider"></div>
+
+        <div flex flex-end>
+          <button type="submit" class="ui primary button">
+            Zaplatiť
+          </button> 
+        </div>
+      </form>
+
+    </div>
+
+    <div *ngIf="order.park.price == 0">
+      <div class="ui divider"></div>
+        <div flex flex-end>
+          <button type="submit" class="ui primary button" (click)="onNext()">
+            Rezervovať
+          </button> 
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="step == 2">
+    <h3>Gratulujeme! Vaše parkovacie miesto je rezervované.</h3>
+
+    <div class="ui grid">
+      <div class="eight wide column">
+        <table full-width>
+          <tbody>
+            <tr>
+              <td><h4>Čas:</h4></td>
+              <td>{{ order.time.fromTime }} - {{ order.time.untilTime }}</td>
+            </tr>
+            <tr>
+              <td><h4>Cena:</h4></td>
+              <td>{{ order.park.price == 0 ? 'Zdarma' : order.park.price + "€ / hodina" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="eight wide column">
+        <div>
+          <i class="map icon"></i>
+          Ilkovičkova 2, Bratislava
+        </div>
+
+        <div class="mapouter" margin-top>
+          <div class="gmap_canvas">
+            <iframe full-width id="gmap_canvas" src="https://maps.google.com/maps?q=Ilkovi%C4%8Dkova%202&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui divider"></div>
+  
+    <div flex flex-end>
+      <button class="ui primary button" (click)="onNavigation()">
+        Prejsť do navigácie
+      </button> 
+    </div>
+  </div>
+
+  
+
+  <i class="close icon" (click)="onClose()"></i>
+  
+</div>

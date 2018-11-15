@@ -1,0 +1,21 @@
+:host {
+    width: 350px;
+    position: fixed;
+    top: 42px;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.ui.checkbox {
+    display: block;
+}
+
+.ui.input {
+    display: block;
+}
+
+nav > div {
+    margin-bottom: 10px;
+}

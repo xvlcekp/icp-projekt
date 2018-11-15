@@ -1,0 +1,10 @@
+<div class="ui top menu fixed inverted">
+  <a class="item" routerLink="/">ParkMonster</a>
+  <a class="item" routerLink="/">O nás</a>
+  <div class="right menu">
+    <a class="item" (click)="loginOpened = !loginOpened">Prihlásenie</a>
+    <a class="item">Registrácia</a>
+</div>
+
+<app-login *ngIf="loginOpened" (closed)="loginOpened = !loginOpened; paymentOpened = false;"></app-login>
+<app-payment [order]="order" *ngIf="paymentOpened" (closed)="paymentOpened = !paymentOpened"></app-payment>

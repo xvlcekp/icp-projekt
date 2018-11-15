@@ -1,0 +1,38 @@
+main {
+    width: 100%;
+    padding-left: 370px;
+    padding-top: 50px;
+    padding-right: 16px;
+    height: 100%;
+}
+
+.mapouter {
+    text-align:right;
+    width:100%;
+    height: 100%;
+    position: relative;
+}
+
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    width:100%;
+    height: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.marker {
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    width: 40px;
+    cursor: pointer;
+}
+
+.marker img {
+    width: 100%;
+}

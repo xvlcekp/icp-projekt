@@ -1,0 +1,67 @@
+<app-filter (places)="setFiltered($event)" [time]="time"></app-filter>
+
+<main>
+  <div class="ui grid">
+    <div class="two column row">
+      <div class="column" flex flex-column justify-content-space-between>
+        <h3>Zadaná adresa</h3>
+        <div full-width class="ui left icon input">
+          <input type="text" placeholder="Zadajte adresu" [value]="query">
+          <i class="map marker alternate icon"></i>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui grid">
+          <div class="two column row">
+            <div class="ten wide column">
+              <div class="ui mini icon input" full-width>
+                <input type="time" [(ngModel)]="time.fromTime">
+                <i class="time icon"></i>
+              </div>
+            </div>
+            <div class="six wide column">
+              <div class="ui mini icon input" full-width>
+                <input type="date" [(ngModel)]="time.fromDay">
+                <i class="calendar icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="two column row">
+            <div class="ten wide column">
+              <div class="ui mini icon input" full-width>
+                <input type="time" [(ngModel)]="time.untilTime">
+                <i class="time icon"></i>
+              </div>
+            </div>
+            <div class="six wide column">
+              <div class="ui mini icon input" full-width>
+                <input type="date" [(ngModel)]="time.untilDay">
+                <i class="calendar icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mapouter" margin-top>
+    <div class="gmap_canvas">
+      <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=kalinciakova&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+      </iframe>
+    </div>
+
+    <span 
+      *ngFor="let dst of filteredDst" 
+      class="marker"
+      [ngStyle]="{ 'top.px': dst.top, 'left.px': dst.left }"
+    >
+      <span>{{ dst.price > 0 ? dst.price + ' €' : 'Free' }}</span>
+      <img 
+        
+        class="map-marker" 
+        src="/src/assets/map-marker.png" 
+        (click)="onOrder(dst)"
+      >
+    </span>
+  </div>
+</main>

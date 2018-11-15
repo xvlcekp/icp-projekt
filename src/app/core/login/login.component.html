@@ -1,0 +1,42 @@
+<div id="loginModal">
+  <h1>Prihlásiť sa</h1>
+
+  <i class="user circle icon"></i>
+
+  <form (ngSubmit)="onLogin(f)" #f="ngForm" >
+    <div class="ui input" full-width>
+      <input 
+        name="username" 
+        type="text" 
+        placeholder="Prihlasovacie meno" 
+        ngModel 
+        required
+      >
+    </div>
+
+    <div class="ui input" full-width margin-top>
+      <input 
+        type="password" 
+        placeholder="Heslo" 
+        name="password"
+        ngModel 
+        required
+      >
+    </div>
+
+    <button type="submit" class="ui primary button" margin-top>
+      Prihlásiť
+    </button>
+  </form>
+
+  <div flex justify-content-space-between margin-top>
+    <a href="#"><i class="google icon"></i> Prihlásiť sa pomocou Googlu</a>
+    <a href="#"><i class="facebook icon"></i> Prihlásiť sa pomocou Facebooku</a>
+  </div>
+
+  <div class="ui divider"></div>
+  <p>Nemáte ešte účet? <a routerLink="/user/registration">Zaregistrujte sa!</a></p>
+
+  <i class="close icon" (click)="onClose()"></i>
+  
+</div>

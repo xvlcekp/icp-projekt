@@ -1,0 +1,37 @@
+.pusher {
+    margin-top: 40px;
+}
+
+.masthead.segment {
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+}
+
+.hero {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 100%), url(https://www.mojandroid.sk/wp-content/uploads/2018/04/Parking_HP_GettyImages-83314262-200x100-e1475024558670.png) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+.ui.list {
+    text-align: left;
+    font-size: 16px;
+}
+
+.features .list {
+    margin-top: 30px;
+}
+
+.features .item {
+    margin-top: 20px;
+}
+
+.features .ui.list .icon {
+    font-size: 30px;
+    display: inline-block;
+}
+
+.features i + div {
+    display: inline !important;
+}

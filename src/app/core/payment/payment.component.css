@@ -1,0 +1,48 @@
+:host {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#paymentModal {
+    width: 600px;
+    background-color: white;
+    z-index: 10;
+    margin: 100px auto;
+    border: 2px solid #dfdfdf;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.summary {
+    width: 50%;
+}
+
+table tr td {
+    padding: 10px 0;
+}
+
+table tr td:first-child {
+    font-size: 16px;
+}
+
+table tr td:last-child {
+    text-align: left;
+}

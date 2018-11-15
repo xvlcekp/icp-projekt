@@ -1,0 +1,8 @@
+main {
+    padding-top: 50px;   
+}
+
+.row > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
