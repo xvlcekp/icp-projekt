@@ -1,10 +1,15 @@
 <div class="ui top menu fixed inverted">
   <a class="item" routerLink="/">ParkMonster</a>
   <a class="item" routerLink="/">O nás</a>
-  <div class="right menu">
+  <div *ngIf="!user" class="right menu">
     <a class="item" (click)="loginOpened = !loginOpened">Prihlásenie</a>
-    <a class="item">Registrácia</a>
+    <a class="item" routerLink="/user/registration">Registrácia</a>
+  </div>
+  <div *ngIf="user" class="right menu">
+    <a class="item">Prihlásený: {{ user }}</a>
+    <a class="item" (click)="logout()">Odhlásiť sa</a>
+  </div>
 </div>
 
-<app-login *ngIf="loginOpened" (closed)="loginOpened = !loginOpened; paymentOpened = false;"></app-login>
+<app-login *ngIf="loginOpened" (login)="login($event)" (closed)="loginOpened = !loginOpened; paymentOpened = false;"></app-login>
 <app-payment [order]="order" *ngIf="paymentOpened" (closed)="paymentOpened = !paymentOpened"></app-payment>

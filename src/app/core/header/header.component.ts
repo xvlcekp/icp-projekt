@@ -11,9 +11,13 @@ export class HeaderComponent implements OnInit {
   paymentOpened = false;
   order;
 
+  user;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.user = window.localStorage.getItem("logedUser");
+
     this.dataService.madeOrder
       .subscribe(
         (order) => {
@@ -30,6 +34,15 @@ export class HeaderComponent implements OnInit {
           this.paymentOpened = false;
         }
       )
+  }
+
+  login(event) {
+    this.user = event;
+  }
+
+  logout() {
+    this.user = null;
+    window.localStorage.removeItem('logedUser');
   }
 
 }

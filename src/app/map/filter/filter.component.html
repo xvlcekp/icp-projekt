@@ -21,11 +21,11 @@
     <h3 text-center>Typ vozidla</h3>
     <div flex justify-content-space-between>
       <div class="ui checkbox" margin-bottom>
-        <input type="checkbox" name="personal">
+        <input type="checkbox" name="personal" value="personal" (change)="selectedCheckboxCarType($event)">
         <label>Osobný automobil</label>
       </div>
       <div class="ui checkbox" margin-bottom>
-        <input type="checkbox" name="truck">
+        <input type="checkbox" name="truck" value="truck" (change)="selectedCheckboxCarType($event)">
         <label>Nákladné vozidlo</label>
       </div>
     </div>

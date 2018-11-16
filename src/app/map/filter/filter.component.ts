@@ -11,6 +11,7 @@ export class FilterComponent implements OnInit {
   @Output('places') places = new EventEmitter();
   @Input('time') time;
 
+  selectedCarType = [];
   selectedType = [];
   maxPrice;
 
@@ -21,6 +22,7 @@ export class FilterComponent implements OnInit {
       name: 'Parkovisko Eurovea',
       price: 2,
       type: 'indoor',
+      carType: "personal",
       left: 500,
       top: 400
     },
@@ -28,6 +30,7 @@ export class FilterComponent implements OnInit {
       name: 'Parkovisko Kamenné námestie',
       price: 0,
       type: 'outdoor',
+      carType: "personal", 
       left: 200,
       top: 500
     },
@@ -35,6 +38,7 @@ export class FilterComponent implements OnInit {
       name: 'Parkovisko Aupark',
       price: 3,
       type: 'indoor',
+      carType: "personal",
       left: 50,
       top: 50
     },
@@ -42,6 +46,7 @@ export class FilterComponent implements OnInit {
       name: 'Garáž Kamenné námestie',
       price: 0,
       type: 'guarded',
+      carType: "personal",
       left: 247,
       top: 213
     },
@@ -49,6 +54,7 @@ export class FilterComponent implements OnInit {
       name: 'Dlhé diely',
       price: 1,
       type: 'outdoor',
+      carType: "personal", 
       left: 768,
       top: 432
     },
@@ -56,6 +62,7 @@ export class FilterComponent implements OnInit {
       name: 'Parkovisko Kuhajta',
       price: 1,
       type: 'outdoor',
+      carType: "truck",
       left: 768,
       top: 532
     },
@@ -63,6 +70,7 @@ export class FilterComponent implements OnInit {
       name: 'Parkovisko Prasa',
       price: 1,
       type: 'outdoor',
+      carType: "truck",
       left: 768,
       top: 632
     },
@@ -70,6 +78,7 @@ export class FilterComponent implements OnInit {
       name: 'Kryté parkovisko Twin City',
       price: 4,
       type: 'guarded',
+      carType: "personal",
       left: 100,
       top: 400
     },
@@ -77,6 +86,7 @@ export class FilterComponent implements OnInit {
       name: 'Parkovisko Polus',
       price: 0,
       type: 'indoor',
+      carType: "personal",
       left: 200,
       top: 50
     }
@@ -99,7 +109,10 @@ export class FilterComponent implements OnInit {
 
     this.filtered = this.parkingPlaces.filter(
       (place) => {
-        if((this.selectedType.length == 0 || this.selectedType.indexOf(place.type) > -1) && (place.price <= this.maxPrice || !this.maxPrice)) {
+        if(
+          (this.selectedType.length == 0 || this.selectedType.indexOf(place.type) > -1) && 
+          (place.price <= this.maxPrice || !this.maxPrice) && 
+          (this.selectedCarType.indexOf(place.carType) > -1 || this.selectedCarType.length == 0)) {
           return place;
         }
       }
@@ -122,7 +135,17 @@ export class FilterComponent implements OnInit {
       this.selectedType.splice(this.selectedType.indexOf(event.target.value), 1);
     }
 
-    this.filter()
+    this.filter();
+  }
+
+  selectedCheckboxCarType(event) {
+    if(event.target.checked) {
+      this.selectedCarType.push(event.target.value)
+    } else {
+      this.selectedCarType.splice(this.selectedType.indexOf(event.target.value), 1);
+    }
+
+    this.filter();
   }
 
 }

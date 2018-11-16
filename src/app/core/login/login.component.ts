@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   @Output() closed = new EventEmitter<boolean>();
+  @Output() login = new EventEmitter();
 
   constructor(private router: Router) { }
 
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
       window.localStorage.setItem("logedUser", form.value.username);
       this.router.navigate(['map']);
       this.closed.emit(true);
+      this.login.emit(form.value.username);
     }
   }
 
