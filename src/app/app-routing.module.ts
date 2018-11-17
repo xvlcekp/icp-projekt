@@ -5,6 +5,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { MapComponent } from './map/map.component';
 import { OwnerRegistrationComponent } from './owner-registration/owner-registration.component';
 import { RegisterComponent } from './register/register.component';
+import { RegComponent } from './reg/reg.component';
 
 const routes: Routes = [
   { 
@@ -17,11 +18,15 @@ const routes: Routes = [
   },
   {
     path: 'owner/registration',
-    component: OwnerRegistrationComponent
+    component: RegComponent
   },
   {
     path: 'user/registration',
     component: RegisterComponent
+  },
+  {
+    path: 'owner/add',
+    component: OwnerRegistrationComponent
   }
 ];
 

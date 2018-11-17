@@ -1,0 +1,198 @@
+<main class="ui container">
+  <div *ngIf="!registered">
+    <div class="ui message">
+      <h1 class="ui header">Registrácia použivateľa</h1>
+      <p>Polia označené symbolom * sú povinné.</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    
+      <div class="ui two column grid">
+        <div class="row">
+          <div class="four wide column">
+            <label for="firstname">*Meno</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="firstname" ngModel>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">*Priezvisko</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="surname" ngModel>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">*Názov firmy</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="company" ngModel>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">*Telefónne číslo</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="phone" ngModel>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">*Heslo</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="password" name="password">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">*Potvrdenie hesla</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="password" name="confirm">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">*Adresa</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="address" ngModel>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">*Mesto</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="city" ngModel>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">IČO</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="ico" ngModel>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">DIČ</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="dic" ngModel>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="four wide column">
+            <label for="surname">IBAN</label>
+          </div>
+          <div class="twelve wide column">
+            <div class="ui input" full-width>
+              <input type="text" name="iban" ngModel>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui divider"></div>
+    
+      <button type="submit" class="ui primary right floated button">
+        Registrovať
+      </button>
+    </form>
+  </div>
+
+  <div *ngIf="registered">
+    <div class="ui message">
+      <h1 class="ui header">Gratulujeme! Úspešne ste sa registrovali.</h1>
+      <p>Informácie o registrácii boli odoslané na email.</p>
+    </div>  
+
+    <h3>Sumarizácia</h3>
+
+    <table class="ui celled table">
+      <thead>
+        <tr>
+          <th colspan="2">Informácie o zákazníkovi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Name">Meno a priezvisko</td>
+          <td data-label="Age">{{ info.firstname }} {{ info.surname }}</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Adresa</td>
+          <td data-label="Age">{{ info.address }}</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Mesto</td>
+          <td data-label="Age">{{ info.city }}</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Email</td>
+          <td data-label="Age">{{ info.company }}</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Telefónne číslo</td>
+          <td data-label="Age">{{ info.phone }}</td>
+        </tr>
+        <tr>
+          <td data-label="Name">IČO</td>
+          <td data-label="Age">{{ info.ico }}</td>
+        </tr>
+        <tr>
+          <td data-label="Name">DIČ</td>
+          <td data-label="Age">{{ info.dic }}</td>
+        </tr>
+        <tr>
+          <td data-label="Name">IBAN</td>
+          <td data-label="Age">{{ info.iban }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui divider"></div>
+
+    <button class="ui primary right floated button" routerLink="/">
+      Naspäť na hlavnú stránku
+    </button>
+  </div>
+  
+  </main>

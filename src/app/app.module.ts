@@ -10,13 +10,15 @@ import { FilterComponent } from './map/filter/filter.component';
 import { OwnerRegistrationComponent } from './owner-registration/owner-registration.component';
 import { RegisterModule } from './register/register.module';
 import { FormsModule } from '@angular/forms';
+import { RegComponent } from './reg/reg.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     FilterComponent,
-    OwnerRegistrationComponent
+    OwnerRegistrationComponent,
+    RegComponent
   ],
   imports: [
     BrowserModule,

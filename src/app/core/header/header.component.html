@@ -2,8 +2,9 @@
   <a class="item" routerLink="/">ParkMonster</a>
   <a class="item" routerLink="/">O nás</a>
   <div *ngIf="!user" class="right menu">
-    <a class="item" (click)="loginOpened = !loginOpened">Prihlásenie</a>
-    <a class="item" routerLink="/user/registration">Registrácia</a>
+    <a class="item" (click)="loginOpened = !loginOpened"><i class="user icon"></i> Prihlásenie</a>
+    <a class="item" routerLink="/user/registration"><i class="user plus icon"></i> Registrácia</a>
+    <a class="item" routerLink="/owner/registration"><i class="user plus icon"></i> Registrácia ako majiteľ</a>
   </div>
   <div *ngIf="user" class="right menu">
     <a class="item">Prihlásený: {{ user }}</a>
