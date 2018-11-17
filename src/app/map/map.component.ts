@@ -24,7 +24,9 @@ export class MapComponent implements OnInit {
     this.route.queryParams
       .subscribe(
         (params) => {
-          this.query = params['query'];
+
+          if(params['query']) this.query = params['query'];
+          else this.query = '';
         }
       );
   }

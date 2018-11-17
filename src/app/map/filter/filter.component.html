@@ -47,7 +47,7 @@
   <div>
     <h3 text-center>Vzdialenosť od adresy</h3>
     <div class="ui right labeled input" full-width>
-      <input  type="text">
+      <input type="text">
       <div class="ui basic label">
         m
       </div>
@@ -56,11 +56,15 @@
 
   <hr>
 
-  <div flex justify-content-flex-end>
-    <button class="ui primary button">
-      Vyhľadať
-    </button>
+  <h3 text-center>Ďalšie možnosti</h3>
+  <div flex justify-content-space-between align-items-center>
+    <div class="ui checkbox">
+      <input type="checkbox" name="ztp" (change)="ztp = !ztp; filter()">
+      <label>Parkovacie miesta pre ŽTP</label>
+    </div>
   </div>
+
+  <hr>
 
   <h4 class="ui horizontal divider header">
     <i class="map marker alternate icon"></i>

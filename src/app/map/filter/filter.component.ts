@@ -14,6 +14,7 @@ export class FilterComponent implements OnInit {
   selectedCarType = [];
   selectedType = [];
   maxPrice;
+  ztp = false;
 
   filtered = [];
 
@@ -24,7 +25,8 @@ export class FilterComponent implements OnInit {
       type: 'indoor',
       carType: "personal",
       left: 500,
-      top: 400
+      top: 400,
+      ztp: true
     },
     {
       name: 'Parkovisko Kamenné námestie',
@@ -32,7 +34,9 @@ export class FilterComponent implements OnInit {
       type: 'outdoor',
       carType: "personal", 
       left: 200,
-      top: 500
+      top: 500,
+      ztp: true
+
     },
     {
       name: 'Parkovisko Aupark',
@@ -40,7 +44,9 @@ export class FilterComponent implements OnInit {
       type: 'indoor',
       carType: "personal",
       left: 50,
-      top: 50
+      top: 50,
+      ztp: false
+
     },
     {
       name: 'Garáž Kamenné námestie',
@@ -48,7 +54,8 @@ export class FilterComponent implements OnInit {
       type: 'guarded',
       carType: "personal",
       left: 247,
-      top: 213
+      top: 213,
+      ztp: true
     },
     {
       name: 'Dlhé diely',
@@ -56,7 +63,8 @@ export class FilterComponent implements OnInit {
       type: 'outdoor',
       carType: "personal", 
       left: 768,
-      top: 432
+      top: 432,
+      ztp: false
     },
     {
       name: 'Parkovisko Kuhajta',
@@ -64,7 +72,9 @@ export class FilterComponent implements OnInit {
       type: 'outdoor',
       carType: "truck",
       left: 768,
-      top: 532
+      top: 532,
+      ztp: true
+
     },
     {
       name: 'Parkovisko Prasa',
@@ -72,7 +82,9 @@ export class FilterComponent implements OnInit {
       type: 'outdoor',
       carType: "truck",
       left: 768,
-      top: 632
+      top: 632,
+      ztp: false
+
     },
     {
       name: 'Kryté parkovisko Twin City',
@@ -80,7 +92,9 @@ export class FilterComponent implements OnInit {
       type: 'guarded',
       carType: "personal",
       left: 100,
-      top: 400
+      top: 400,
+      ztp: true
+
     },
     {
       name: 'Parkovisko Polus',
@@ -88,7 +102,9 @@ export class FilterComponent implements OnInit {
       type: 'indoor',
       carType: "personal",
       left: 200,
-      top: 50
+      top: 50,
+      ztp: true
+
     }
   ]
 
@@ -106,13 +122,15 @@ export class FilterComponent implements OnInit {
   }
 
   filter() {
+    console.log(this.ztp)
 
     this.filtered = this.parkingPlaces.filter(
       (place) => {
         if(
           (this.selectedType.length == 0 || this.selectedType.indexOf(place.type) > -1) && 
           (place.price <= this.maxPrice || !this.maxPrice) && 
-          (this.selectedCarType.indexOf(place.carType) > -1 || this.selectedCarType.length == 0)) {
+          (this.selectedCarType.indexOf(place.carType) > -1 || this.selectedCarType.length == 0) && 
+          (this.ztp == place.ztp || !this.ztp)) {
           return place;
         }
       }
