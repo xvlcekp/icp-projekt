@@ -20,4 +20,14 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  onAddPlace() {
+    const user = window.localStorage.getItem("logedUser");
+
+    console.log(user)
+
+    if(user) {
+      this.router.navigate(['owner', 'add'])
+    } 
+  }
+
 }
