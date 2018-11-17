@@ -35,3 +35,8 @@
 .features i + div {
     display: inline !important;
 }
+
+.header + i {
+    font-size: 50px;
+    margin: 20px 0;
+}

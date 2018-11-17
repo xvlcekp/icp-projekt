@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+[margin-vertical] {
+    margin: 16px 0 !important;
+}
+
 [margin-bottom] {
     margin-bottom: 16px;
 }
@@ -39,6 +44,10 @@
     width: 100%;
 }
 
+[full-height] {
+    height: 100%;
+}
+
 [text-center] {
-    text-align: center;
+    text-align: center !important;
 }
